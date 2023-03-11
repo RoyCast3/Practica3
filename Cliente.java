@@ -13,16 +13,17 @@ public class Cliente {
         Socket socket = new Socket(host, puerto);
         System.out.println("Programa Inicializado...");
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter salida = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
         System.out.println("Mensaje enviado al servidor.");
-        out.println("Hola servidor!");
+        salida.println("Hola servidor!");
 
-        String respuesta = in.readLine();
+        String respuesta = entrada.readLine();
         System.out.println("Respuesta del servidor: " + respuesta);
-        in.close();
-        out.close();
+        
+        entrada.close();
+        salida.close();
         socket.close();
     }
 }
