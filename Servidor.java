@@ -28,7 +28,7 @@ class HiloCliente extends Thread {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
-            out.println("Bienvenido al servidor!");
+            out.println("Conectado al Servidor!");
 
             while (true) {
                 String mensaje = in.readLine();
