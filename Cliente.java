@@ -3,10 +3,15 @@ import java.net.*;
 
 public class Cliente {
     public static void main(String[] args) throws IOException {
-        String host = "localhost";
-        int puerto = 5000;
+        if (args.length != 2) {
+            System.err.println(
+                    "Uso desde consola: Se requiere el host y el puerto de ambos servidores");
+            System.exit(1);
+        }
+        String host = args[0];
+        int puerto = Integer.parseInt(args[1]);
         Socket socket = new Socket(host, puerto);
-        System.out.println("Conexión establecida con el servidor.");
+        System.out.println("Programa Inicializado...");
 
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);

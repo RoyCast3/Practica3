@@ -10,40 +10,10 @@ public class Servidor {
             Socket socket = serverSocket.accept();
             System.out.println("Cliente conectado: " + socket.getInetAddress().getHostName());
 
-            HiloCliente hilo = new HiloCliente(socket);
+            HiloCliente hilo = new HiloCliente(socket, 1);
             hilo.start();
         }
     }
 }
 
-class HiloCliente extends Thread {
-    private Socket socket;
 
-    public HiloCliente(Socket socket) {
-        this.socket = socket;
-    }
-
-    public void run() {
-        try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-
-            out.println("Conectado al Servidor!");
-
-            while (true) {
-                String mensaje = in.readLine();
-                if (mensaje == null) break;
-                System.out.println("Mensaje recibido del cliente: " + mensaje);
-                out.println("Respuesta del servidor: " + mensaje.toUpperCase());
-            }
-
-            in.close();
-            out.close();
-            socket.close();
-            System.out.println("Cliente desconectado.");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
