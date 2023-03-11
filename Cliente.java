@@ -3,7 +3,7 @@ import java.net.*;
 
 public class Cliente {
     public static void main(String[] args) throws IOException {
-        String host = "localhost";
+        String host = "192.168.0.30";
         int puerto = 5000;
         Socket socket = new Socket(host, puerto);
         System.out.println("Conexión establecida con el servidor.");
