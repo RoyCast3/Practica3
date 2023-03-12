@@ -17,7 +17,7 @@ class HiloCliente extends Thread {
     public void run() {
         try {
             PrintWriter salida = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-
+            //System.out.println("Inicia el Hilo");
             switch (opcion) {
                 case 1:
                     int resultado = sumar(num1, num2);
