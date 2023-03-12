@@ -16,12 +16,16 @@ public class Cliente {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter salida = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
-        System.out.println("Mensaje enviado al servidor.");
+        System.out.println("Solicitud enviada al servidor.");
         salida.println("Hola servidor!");
 
         String respuesta = entrada.readLine();
         System.out.println("Respuesta del servidor: " + respuesta);
-        
+        respuesta = entrada.readLine();
+        System.out.println("Respuesta del servidor: " + respuesta);
+        respuesta = entrada.readLine();
+        System.out.println("Respuesta del servidor: " + respuesta);
+
         entrada.close();
         salida.close();
         socket.close();

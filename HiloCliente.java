@@ -4,40 +4,42 @@ import java.net.*;
 class HiloCliente extends Thread {
     private Socket socket;
     private int opcion;
+    private int num1;
+    private int num2;
 
-    public HiloCliente(Socket socket, int opcion) {
+    public HiloCliente(Socket socket, int opcion, int num1, int num2) {
         this.socket = socket;
         this.opcion = opcion;
+        this.num1 = num1;
+        this.num2 = num2;
     }
 
     public void run() {
         try {
             BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter salida = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-
-            salida.println("Conectado al Servidor!");
             String mensaje;
+            salida.println("Conectado al Servidor!");
+
+            mensaje = entrada.readLine();
+            System.out.println("Mensaje del cliente: " + mensaje);
             switch (opcion) {
                 case 1:
-                    salida.println("SE ELIGIÓ LA OPCION: " + opcion);
+                    int resultado = sumar(num1, num2);
+                    salida.println("El total de la suma es: " + resultado);
                     break;
                 case 2:
-                    salida.println("SE ELIGIÓ LA OPCION: " + opcion);
+                    resultado = resta(num1, num2);
+                    salida.println("El total de la suma es: " + resultado);
                     break;
                 case 3:
-                    salida.println("SE ELIGIÓ LA OPCION: " + opcion);
+                    resultado = multiplicar(num1, num2);
+                    salida.println("El total de la suma es: " + resultado);
                     break;
                 case 4:
-                    salida.println("SE ELIGIÓ LA OPCION: " + opcion);
+                    resultado = dividir(num1, num2);
+                    salida.println("El total de la suma es: " + resultado);
                     break;
-            }
-
-            while (true) {
-                mensaje = entrada.readLine();
-                if (mensaje == null)
-                    break;
-                System.out.println("Mensaje recibido del cliente: " + mensaje);
-                salida.println("Respuesta del servidor: " + mensaje.toUpperCase());
             }
 
             entrada.close();
@@ -49,15 +51,22 @@ class HiloCliente extends Thread {
             e.printStackTrace();
         }
     }
-    /*
-     * int numero1 = 10;
-     * int numero2 = 5;
-     * int resultado = sumar(numero1, numero2);
-     * System.out.println("El resultado es: " + resultado);
-     * 
-     * public static int sumar(int a, int b) {
-     * int resultado = a + b;
-     * return resultado;
-     * }
-     */
+
+    private static int sumar(int a, int b) {
+        int total = a + b;
+        return total;
+    }
+    private static int resta(int a, int b) {
+        int total = a - b;
+        return total;
+    }
+    private static int dividir(int a, int b) {
+        int total = a / b;
+        return total;
+    }
+    private static int multiplicar(int a, int b) {
+        int total = a * b;
+        return total;
+    }
+
 }

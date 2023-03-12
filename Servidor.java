@@ -9,8 +9,8 @@ public class Servidor {
         while (true) {
             Socket socket = serverSocket.accept();
             System.out.println("Cliente conectado: " + socket.getInetAddress().getHostName());
-
-            HiloCliente hilo = new HiloCliente(socket, 1);
+            //Creando los hilos para las operaciones
+            HiloCliente hilo = new HiloCliente(socket, 1, 10, 20);
             hilo.start();
         }
     }
