@@ -8,8 +8,7 @@ public class Servidor {
 
         while (true) {
             Socket socket = serverSocket.accept();
-            System.out.println("Cliente nuevo: " + socket.getInetAddress().getAddress());
-            System.out.println("Nombre del host: " + socket.getInetAddress().getHostAddress());
+            System.out.println("Cliente conectado: " + socket.getInetAddress().getHostAddress());
 
             BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String mensaje;
@@ -27,6 +26,11 @@ public class Servidor {
             hilo2.start();
             hilo3.start();
             hilo4.start();
+
+            mensaje = entrada.readLine();
+            System.out.println(mensaje);
+            mensaje = entrada.readLine();
+            System.out.println(mensaje);
         }
     }
 }

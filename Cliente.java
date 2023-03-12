@@ -9,19 +9,17 @@ public class Cliente {
         }
         System.out.println("Programa Inicializado...");
 
-        String host = "localhost";
+        String host = "192.168.0.30";
         int puerto = 5000;
         int num1 = Integer.parseInt(args[0]);
         int num2 = Integer.parseInt(args[1]);
         String[] mensaje = new String[4];
-        System.out.println(num1);
-        System.out.println(num2);
         Socket socket = new Socket(host, puerto);
 
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter salida = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
-        System.out.println("Solicitud enviada al servidor.");
+        System.out.println("Solicitud enviada.");
         salida.println(num1);
         salida.println(num2);
 
