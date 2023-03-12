@@ -22,11 +22,15 @@ public class Cliente {
 
         salida.println(num1);
         salida.println(num2);
+        salida.println(1);
+        salida.println(2);
         salida2.println(num1);
         salida2.println(num2);
+        salida2.println(3);
+        salida2.println(4);
         System.out.println("Solicitud enviada.");
 
-        for (int x = 0; x < 4; x++) {
+        for (int x = 0; x < 2; x++) {
             mensaje[x] = entrada.readLine();
         }
 

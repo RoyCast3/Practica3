@@ -20,16 +20,20 @@ public class Servidor {
             int num1 = Integer.parseInt(mensaje);
             mensaje = entrada.readLine();
             int num2 = Integer.parseInt(mensaje);
+            mensaje = entrada.readLine();
+            int x1 = Integer.parseInt(mensaje);
+            mensaje = entrada.readLine();
+            int x2 = Integer.parseInt(mensaje);
 
-            HiloCliente hilo = new HiloCliente(socket, 1, num1, num2);
-            HiloCliente hilo2 = new HiloCliente(socket, 2, num1, num2);
-            HiloCliente hilo3 = new HiloCliente(socket, 3, num1, num2);
-            HiloCliente hilo4 = new HiloCliente(socket, 4, num1, num2);
+            HiloCliente hilo = new HiloCliente(socket, x1, num1, num2);
+            HiloCliente hilo2 = new HiloCliente(socket, x2, num1, num2);
+            //HiloCliente hilo3 = new HiloCliente(socket, 3, num1, num2);
+            //HiloCliente hilo4 = new HiloCliente(socket, 4, num1, num2);
 
             hilo.start();
             hilo2.start();
-            hilo3.start();
-            hilo4.start();
+            //hilo3.start();
+            //hilo4.start();
 
             mensaje = entrada.readLine();
             System.out.println(mensaje);
