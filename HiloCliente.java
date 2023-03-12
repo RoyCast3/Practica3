@@ -16,13 +16,8 @@ class HiloCliente extends Thread {
 
     public void run() {
         try {
-            BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter salida = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-            String mensaje;
-            salida.println("Conectado al Servidor!");
 
-            mensaje = entrada.readLine();
-            System.out.println("Mensaje del cliente: " + mensaje);
             switch (opcion) {
                 case 1:
                     int resultado = sumar(num1, num2);
@@ -41,12 +36,6 @@ class HiloCliente extends Thread {
                     salida.println("El total de la division es: " + resultado);
                     break;
             }
-
-            entrada.close();
-            salida.close();
-            socket.close();
-            System.out.println("Cliente desconectado.");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,14 +45,17 @@ class HiloCliente extends Thread {
         int total = a + b;
         return total;
     }
+
     private static int resta(int a, int b) {
         int total = a - b;
         return total;
     }
+
     private static int dividir(int a, int b) {
         int total = a / b;
         return total;
     }
+
     private static int multiplicar(int a, int b) {
         int total = a * b;
         return total;
