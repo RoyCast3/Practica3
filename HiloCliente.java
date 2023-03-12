@@ -30,15 +30,15 @@ class HiloCliente extends Thread {
                     break;
                 case 2:
                     resultado = resta(num1, num2);
-                    salida.println("El total de la suma es: " + resultado);
+                    salida.println("El total de la resta es: " + resultado);
                     break;
                 case 3:
                     resultado = multiplicar(num1, num2);
-                    salida.println("El total de la suma es: " + resultado);
+                    salida.println("El total de la multiplicacion es: " + resultado);
                     break;
                 case 4:
                     resultado = dividir(num1, num2);
-                    salida.println("El total de la suma es: " + resultado);
+                    salida.println("El total de la division es: " + resultado);
                     break;
             }
 

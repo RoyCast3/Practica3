@@ -11,6 +11,7 @@ public class Cliente {
         String host = args[0];
         int puerto = Integer.parseInt(args[1]);
         Socket socket = new Socket(host, puerto);
+        String respuesta;
         System.out.println("Programa Inicializado...");
 
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -19,12 +20,12 @@ public class Cliente {
         System.out.println("Solicitud enviada al servidor.");
         salida.println("Hola servidor!");
 
-        String respuesta = entrada.readLine();
-        System.out.println("Respuesta del servidor: " + respuesta);
-        respuesta = entrada.readLine();
-        System.out.println("Respuesta del servidor: " + respuesta);
-        respuesta = entrada.readLine();
-        System.out.println("Respuesta del servidor: " + respuesta);
+        while(true){
+            respuesta = entrada.readLine();
+            if (respuesta == null)
+            break;
+            System.out.println("Mensaje del Servidor: " + respuesta);
+        }
 
         entrada.close();
         salida.close();
