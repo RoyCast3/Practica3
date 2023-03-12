@@ -37,8 +37,8 @@ public class Servidor {
 
             mensaje = entrada.readLine();
             System.out.println(mensaje);
-            mensaje = entrada.readLine();
-            System.out.println(mensaje);
+            //mensaje = entrada.readLine();
+            //System.out.println(mensaje);
         }
     }
 }

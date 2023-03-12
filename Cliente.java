@@ -34,9 +34,13 @@ public class Cliente {
             mensaje[x] = entrada.readLine();
         }
 
+        for (int x = 2; x < 4; x++) {
+            mensaje[x] = entrada2.readLine();
+        }
+
         salida.println(mensaje[0]);
         System.out.println(mensaje[1]);
-        salida.println(mensaje[2]);
+        salida2.println(mensaje[2]);
         System.out.println(mensaje[3]);
 
         entrada.close();
