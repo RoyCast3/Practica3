@@ -3,8 +3,12 @@ import java.net.*;
 
 public class Servidor {
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(5000);
-        System.out.println("Servidor iniciado en el puerto 5000...");
+        if (args.length != 1) {
+            System.err.println("Se requiere un puerto");
+            System.exit(1);
+        }
+        ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
+        System.out.println("Servidor iniciado en " + args[0]);
 
         while (true) {
             Socket socket = serverSocket.accept();
