@@ -12,7 +12,7 @@ public class Cliente {
         int num1 = Integer.parseInt(args[0]);
         int num2 = Integer.parseInt(args[1]);
         String[] mensaje = new String[4];
-        Socket socket = new Socket("localhost", 5000);
+        Socket socket = new Socket("192.168.0.23", 5000);
         Socket socket2 = new Socket("192.168.0.30", 4000);
 
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
